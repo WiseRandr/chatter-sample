@@ -12,3 +12,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+li.message-content {
+  width: 40%;
+  background-color: #009688;
+  border-radius: 20px;
+  padding: 0 19px;
+  box-shadow: 0 0 4px 0px #656565;
+  margin: 3px 0;
+}
+
+li.message-content.owner {
+  margin-left: auto;
+  background-color: #2196F3;
+}
+
+ul#messageWrapper {
+  height: 350px;
+  overflow: auto;
+}

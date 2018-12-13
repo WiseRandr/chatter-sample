@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Chatter from "../Chatter/Chatter";
+
+const ChatUser = new Chatter();
 
 const Home = () => {
     return(
@@ -12,7 +15,14 @@ const Home = () => {
                         <p>Run a real-time chat web application for your team with a local private network.</p>
                     </div>
                     <div className="card-action">
-                        <Link to="/login">Login</Link>
+                        <button className="btn">
+                            {
+                                ChatUser.isLogged() ?
+                                <Link to="/logout">Logout</Link>
+                                :
+                                <Link to="/login">Login</Link>
+                            }
+                        </button>
                     </div>
                 </div>
                 </div>

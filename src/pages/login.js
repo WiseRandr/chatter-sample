@@ -2,6 +2,8 @@ import React from "react";
 import socket from "../socket/socket";
 import Chatter from "../Chatter/Chatter";
 
+const ChatUser = new Chatter();
+
 let propsVal = {};
 
 const loginForm = (e) => {
@@ -13,7 +15,7 @@ const loginForm = (e) => {
 
     socket.emit('login', {email: email, password: password});
     socket.once('logged', (user) => {
-        Chatter.set(user);
+        ChatUser.set(user);
         propsVal.history.push('/chat');
     });
 };

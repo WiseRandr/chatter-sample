@@ -6,6 +6,8 @@ import Chatter from "../Chatter/Chatter";
 import logo from '../chatter.png';
 import M from "materialize-css";
 
+const chatter = new Chatter();
+
 const Header = () => {
     
     document.addEventListener('DOMContentLoaded', function() {
@@ -21,12 +23,12 @@ const Header = () => {
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/chat">Chat</NavLink></li>
-                    { Chatter.isLogged() ?
+                    { chatter.isLogged() ?
                         <li><NavLink to="/profile">Profile</NavLink></li>
                         : 
                         <li><NavLink to="/register" className="btn">Register</NavLink></li>
                     }
-                    { Chatter.isLogged() ?
+                    { chatter.isLogged() ?
                         <li><NavLink to="/logout" className="btn">Logout</NavLink></li>
                         : 
                         <li><NavLink to="/login" className="btn">Login</NavLink></li>
@@ -35,17 +37,15 @@ const Header = () => {
                 <ul className="sidenav" id="mobile-menu">
                     <li><NavLink to="/" className="sidenav-close">Home</NavLink></li>
                     <li><NavLink to="/chat" className="sidenav-close">Chat</NavLink></li>
-                    <li><NavLink to="/register" className="sidenav-close">Register</NavLink></li>
-                    <li><NavLink to="/login" className="sidenav-close">Login</NavLink></li>
-                    { Chatter.isLogged() ?
+                    { chatter.isLogged() ?
                         <li><NavLink to="/profile" className="sidenav-close">Profile</NavLink></li>
                         : 
                         <li><NavLink to="/register" className="sidenav-close">Register</NavLink></li>
                     }
-                    { Chatter.isLogged() ?
-                        <li><NavLink to="/logout" className="btsidenav-closen">Logout</NavLink></li>
+                    { chatter.isLogged() ?
+                        <li><NavLink to="/logout" className="sidenav-close">Logout</NavLink></li>
                         : 
-                        <li><NavLink to="/login" className="bsidenav-closetn">Login</NavLink></li>
+                        <li><NavLink to="/login" className="sidenav-close">Login</NavLink></li>
                     }
                 </ul>
             </div>

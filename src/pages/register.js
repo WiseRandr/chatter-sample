@@ -1,6 +1,8 @@
 import React from "react";
 import socket from "../socket/socket";
 
+let propsVal = {};
+
 const registerForm = (e) => {
     e.preventDefault();
 
@@ -19,11 +21,13 @@ const registerForm = (e) => {
 
     socket.emit('register', user);
     socket.on('registered', (user) => {
-        console.log(user);
+        propsVal.history.push('/login');
     });
 };
 
-const Register = () => {
+const Register = (props) => {
+    propsVal = props;
+
     return(
         <div className="container">
             <div className="row card">
