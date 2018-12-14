@@ -51,8 +51,8 @@ class Chat extends Component {
             messages.forEach((message) => {
                 msg += this.renderMessage(message)
             });
-
-            document.querySelector('#messageWrapper').innerHTML = msg;
+            if(document.querySelector('#messageWrapper') !== null)
+                document.querySelector('#messageWrapper').innerHTML = msg;
         });
 
         socket.on('receiveMessage', (message) => {
@@ -65,7 +65,6 @@ class Chat extends Component {
             var element = document.querySelector('#messageWrapper')
             var msg = element.innerHTML;
             document.querySelector('#messageWrapper').scrollTop = element.scrollHeight + 100;
-            console.log(element.scrollTop, element.scrollHeight);
             element.innerHTML = msg + this.renderMessage(message);
         });
 
