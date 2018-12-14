@@ -15,8 +15,10 @@ const loginForm = (e) => {
 
     socket.emit('login', {email: email, password: password});
     socket.once('logged', (user) => {
-        ChatUser.set(user);
-        propsVal.history.push('/chat');
+        if(user !== null) {
+            ChatUser.set(user);
+            propsVal.history.push('/chat');
+        }
     });
 };
 
