@@ -1,5 +1,5 @@
 import socketIOClient from 'socket.io-client';
 
-const socket = socketIOClient.connect('http://192.168.0.117:8383');
+const socket = socketIOClient.connect('https://chatter-sample-server.herokuapp.com/');
 
 export default socket;
