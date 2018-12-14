@@ -3,11 +3,11 @@ import socket from "../socket/socket";
 
 import Chatter from "../Chatter/Chatter";
 
-const { id, username, name } = new Chatter().get();
+var id, username, name;
 
 class Chat extends Component {
     state = {
-        messages: <li>Loading messages ...</li>
+        messages: <li>Loading messages ...</li>,
     };
 
     sendMessage = (e) => {
@@ -39,6 +39,12 @@ class Chat extends Component {
     }
 
     render() {
+        var userData = new Chatter().get();
+
+        id = userData.id;
+        name = userData.name;
+        username = userData.username;
+        
         if(!new Chatter().isLogged())
             this.props.history.push('/login');
         else
