@@ -56,6 +56,11 @@ class Chat extends Component {
         });
 
         socket.on('receiveMessage', (message) => {
+            // Notifictaion
+            if(message.username !== username) {
+                window.Notification.requestPermission().then(function(){ return new Notification("Chatter new message")});
+            }
+
             document.querySelector('.feedback').innerHTML = "";
             var element = document.querySelector('#messageWrapper')
             var msg = element.innerHTML;
