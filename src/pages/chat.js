@@ -16,7 +16,7 @@ class Chat extends Component {
         var target = e.target;
         var message = target.message.value;
 
-        if(message !== "" && username !== undefined && name !== undefined) {
+        if(message !== "") {
             socket.emit('sendMessage', {content: message, id: id, username: username, name: name});
             target.message.value = "";
         }
